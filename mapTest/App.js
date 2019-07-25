@@ -1,25 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 import MapView from 'react-native-maps';
+import TopLevelNavigator from './components/AppNavigatorLevelOneComp';
 
 export default function App() {
+  let AppcontainerComp = createAppContainer(TopLevelNavigator);
+  // console.log(AppcontainerComp)
   return (
-    <View style={styles.container}>
-      <MapView style={{height:'100%',width:'100%'}} region={{
-      latitude: 37.78825,
-      longitude: -122.4324,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
-    }} />
-    </View>
+<AppcontainerComp/>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
